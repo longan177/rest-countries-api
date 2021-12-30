@@ -1,7 +1,9 @@
+import MainComponent from "./MainComponent";
+
 function App() {
   return (
     <div>
-      <h1 className="fontt">Hi world</h1>
+      <MainComponent />
     </div>
   );
 }
