@@ -64,6 +64,7 @@ Variables
   --max-width: 1170px;
   --fixed-width: 620px;
   --font-family: "Nunito Sans", sans-serif;
+  --box-shadow-light: 0 0 15px -7px var(--clr-project-dark-grey);
 }
 /*
   =============== 
@@ -155,7 +156,7 @@ p {
   background-color: white;
   width: 100vw;
   /* border-bottom: 1px solid var(--clr-project-dark-grey); */
-  box-shadow: 0 0 15px -7px var(--clr-project-dark-grey);
+  box-shadow: var(--box-shadow-light);
 }
 
 .nav-container {
@@ -167,10 +168,11 @@ p {
   align-items: center;
   padding: 2rem 0;
   max-width: 1440px;
+  padding: 1.75rem 0;
 }
 
 .nav h1 {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 800;
   margin: 0;
 }
@@ -192,7 +194,6 @@ nav button {
   .nav-container {
     /* background-color: lawngreen; */
     width: 89%;
-    padding: 1.75rem 0;
   }
   .nav h1 {
     font-size: 1.5rem;
@@ -206,3 +207,108 @@ nav button {
 }
 
 /* -----------------navbar-------------------------- */
+
+/* --------------------search bar------------------------- */
+section {
+  border: 1px solid limegreen;
+}
+
+.search-container {
+  width: 93%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-input {
+  padding: 0em 2rem;
+  background-color: white;
+  box-shadow: var(--box-shadow-light);
+  justify-content: flex-start;
+  color: var(--clr-project-dark-grey);
+  gap: 1.6rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.search-input label {
+  cursor: pointer;
+}
+.search-country {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 0.8rem;
+  border: none;
+  /* background-color: red; */
+  width: 100%;
+  padding: 1rem 0.3rem;
+  outline: none;
+}
+
+::placeholder {
+  color: var(--clr-grey-5);
+}
+.search-input:nth-of-type(2) {
+  width: 58%;
+  padding: 0;
+  /* background-color: red; */
+}
+
+.search-region {
+  /* background-color: red; */
+  /* display: inline; */
+  font-family: inherit;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 0.8rem;
+}
+.search-region {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+  /* background-color: red; */
+}
+/* To add padding to the arrow. Select wrapper is div */
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .search-container {
+    width: 89%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3.1rem 0;
+    /* background-color: red; */
+  }
+
+  .search-input:nth-of-type(1) {
+    width: 38%;
+  }
+  .search-input:nth-of-type(2) {
+    width: 16%;
+    /* background-color: red; */
+  }
+
+  .search-region {
+    width: 100%;
+    height: 100%;
+  }
+}
+/* --------------------search bar------------------------- */

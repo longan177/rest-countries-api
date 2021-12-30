@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Component/Navbar";
+import Searchbar from "./Component/Searchbar";
 
 function MainComponent() {
   return (
@@ -7,6 +8,11 @@ function MainComponent() {
       <header>
         <Navbar />
       </header>
+      <main>
+        <section>
+          <Searchbar />
+        </section>
+      </main>
     </React.Fragment>
   );
 }
