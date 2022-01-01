@@ -1,4 +1,5 @@
 import React from "react";
+import CountryContainer from "./Component/CountryContainer";
 import Navbar from "./Component/Navbar";
 import Searchbar from "./Component/Searchbar";
 
@@ -12,6 +13,9 @@ function MainComponent() {
         <section>
           <Searchbar />
         </section>
+        <article>
+          <CountryContainer />
+        </article>
       </main>
     </React.Fragment>
   );
