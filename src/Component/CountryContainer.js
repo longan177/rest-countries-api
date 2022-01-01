@@ -4,7 +4,7 @@ import Countrycard from "./Countrycard";
 function CountryContainer() {
   const url = "https://restcountries.com/v3.1/all";
   const url2 = "https://jsonplaceholder.typicode.com/posts";
-  const [countries, setCountries] = useState(["Malaysia"]);
+  const [countries, setCountries] = useState([]);
   function compare(a, b) {
     if (a.name.common < b.name.common) {
       return -1;

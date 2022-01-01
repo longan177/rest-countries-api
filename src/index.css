@@ -61,7 +61,7 @@ Variables
   --radius: 0.25rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --max-width: 1170px;
+  --max-width: 1440px;
   --fixed-width: 620px;
   --font-family: "Nunito Sans", sans-serif;
   --box-shadow-light: 0 0 15px -7px var(--clr-project-dark-grey);
@@ -167,7 +167,7 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
-  max-width: 1440px;
+  max-width: var(--max-width);
   padding: 1.75rem 0;
 }
 
@@ -210,7 +210,6 @@ nav button {
 
 /* --------------------search bar------------------------- */
 section {
-  border: 1px solid red;
 }
 
 .search-container {
@@ -220,7 +219,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 2.1rem;
-  max-width: 1440px;
+  max-width: var(--max-width);
 }
 
 .search-input {
@@ -318,9 +317,8 @@ section {
 
 .country-container {
   width: 93%;
-  max-width: 1440px;
-  /* background-color: red; */
-  border: 1px solid red;
+  max-width: var(--max-width);
+
   color: black;
   display: grid;
   grid-template-columns: 1fr;
