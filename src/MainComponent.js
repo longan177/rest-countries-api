@@ -3,6 +3,7 @@ import CountryContainer from "./Component/CountryContainer";
 import Navbar from "./Component/Navbar";
 import Searchbar from "./Component/Searchbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CountryInfo from "./Component/CountryInfo";
 
 function MainComponent() {
   return (
@@ -10,9 +11,12 @@ function MainComponent() {
       <React.Fragment>
         <header>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/country-info" element={<CountryInfo />} />
+            </Routes>{" "}
+          </main>
         </header>
       </React.Fragment>
     </Router>
@@ -20,14 +24,14 @@ function MainComponent() {
 }
 
 const Home = () => (
-  <main>
+  <React.Fragment>
     <section>
       <Searchbar />
     </section>
     <article>
       <CountryContainer />
     </article>
-  </main>
+  </React.Fragment>
 );
 
 export default MainComponent;
