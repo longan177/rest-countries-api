@@ -196,7 +196,7 @@ nav button {
 @media screen and (min-width: 800px) {
   .nav-container {
     /* background-color: lawngreen; */
-    /* width: 89%; */
+    width: 89%;
   }
   .nav h1 {
     font-size: 1.5rem;
@@ -397,6 +397,7 @@ section {
 .country-card h4 {
   /* font-size: 14px; */
   margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 .country-card span {
   font-weight: 600;
@@ -404,6 +405,9 @@ section {
 @media only screen and (min-width: 1200px) {
   .country-card {
     width: 100%;
+  }
+  .country-card h3 {
+    font-size: 1.2rem;
   }
 }
 
