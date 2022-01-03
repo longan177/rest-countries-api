@@ -415,7 +415,7 @@ section {
 
 /* -----------------countryinfo------------------- */
 .info-container {
-  width: 87%;
+  width: 93%;
   margin: 0 auto;
   padding: 2.7rem 0;
 
@@ -469,7 +469,7 @@ section {
 
 @media only screen and (min-width: 992px) {
   .info-container {
-    width: 93%;
+    width: 89%;
   }
   .country-detail-container {
     display: grid;

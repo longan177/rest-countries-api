@@ -1,9 +1,12 @@
 import MainComponent from "./MainComponent";
+import { CountryProvider } from "./data";
 
 function App() {
   return (
     <div>
-      <MainComponent />
+      <CountryProvider>
+        <MainComponent />
+      </CountryProvider>
     </div>
   );
 }
