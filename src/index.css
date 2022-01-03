@@ -5,19 +5,6 @@
 - Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
 - Weights: 300, 600, 800 */
 
-/* 
-- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
-/*
-=============== 
-Variables
-===============
-*/
-
 :root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(205, 86%, 17%);
@@ -65,7 +52,25 @@ Variables
   --fixed-width: 620px;
   --font-family: "Nunito Sans", sans-serif;
   --box-shadow-light: 0 0 15px -7px var(--clr-project-dark-grey);
+
+  --clr-darkblue-light: hsl(200, 15%, 8%);
+  --clr-darkgray-light: hsl(0, 0%, 52%);
+  --clr-lightgray-light: hsl(0, 0%, 98%);
+  --clr-color-white: white;
+
+  --chr-darkblue-dark: hsl(209, 23%, 22%);
+  --clr-verydarkblue: hsl(207, 26%, 17%);
 }
+
+/* 
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%) */
+/*
+
 /*
   =============== 
   Global Styles
@@ -82,14 +87,23 @@ Variables
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Nunito Sans", "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
+  background: var(--clr-lightgray-light);
+  color: var(--clr-darkblue-light);
   line-height: 1.5;
   font-size: 0.875rem;
+  transition: background 0.2s linear, color 0.2s linear;
 }
 button {
   cursor: pointer;
+  color: inherit;
 }
+
+input,
+select,
+option {
+  color: inherit;
+}
+
 ul {
   list-style-type: none;
 }
@@ -120,7 +134,7 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-grey-5);
+  color: inherit;
 }
 @media screen and (min-width: 800px) {
   h1 {
@@ -156,10 +170,11 @@ p {
 /* -----------------navbar-------------------------- */
 
 .nav {
-  background-color: white;
+  background-color: var(--clr-lightgray-light);
   /* width: 100vw; */
   /* border-bottom: 1px solid var(--clr-project-dark-grey); */
   box-shadow: var(--box-shadow-light);
+  transition: background-color 0.2s linear;
 }
 
 .nav-container {
@@ -195,7 +210,6 @@ nav button {
 
 @media screen and (min-width: 800px) {
   .nav-container {
-    /* background-color: lawngreen; */
     width: 89%;
   }
   .nav h1 {
@@ -212,8 +226,6 @@ nav button {
 /* -----------------navbar-------------------------- */
 
 /* --------------------search bar------------------------- */
-section {
-}
 
 .search-container {
   width: 93%;
@@ -231,7 +243,7 @@ section {
 
   box-shadow: var(--box-shadow-light);
   justify-content: flex-start;
-  color: var(--clr-project-dark-grey);
+  color: inherit;
   gap: 1.6rem;
   border-radius: 3px;
   overflow: hidden;
@@ -252,7 +264,7 @@ section {
 }
 
 ::placeholder {
-  color: var(--clr-grey-5);
+  color: inherit;
 }
 .search-input:nth-of-type(2) {
   width: 58%;
@@ -323,7 +335,7 @@ section {
   width: 93%;
   max-width: var(--max-width);
   /* background-color: red; */
-  color: black;
+  color: inherit;
   display: grid;
   grid-template-columns: 1fr;
   justify-content: stretch;
@@ -369,7 +381,7 @@ section {
 /* ------------country card------------------ */
 .country-card {
   width: 93%;
-  background-color: white;
+  background-color: var(--clr-color-white);
   box-shadow: var(--box-shadow-light);
   margin: 0 auto;
   /* overflow: hidden; */
