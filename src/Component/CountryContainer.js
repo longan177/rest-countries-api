@@ -5,11 +5,18 @@ import { Link } from "react-router-dom";
 import { CountryContext } from "../data";
 
 function CountryContainer() {
-  const [countries, isLoaded, searchTerm, setSearchTerm] =
+  const [countries, isLoaded, searchTerm, setSearchTerm, select, setselect] =
     useContext(CountryContext);
   return isLoaded ? (
     <div className="country-container">
       {countries
+        .filter((country) => {
+          if (select === "all") {
+            return country;
+          } else if (select === country.region.toLowerCase()) {
+            return country;
+          }
+        })
         .filter((country) => {
           if (searchTerm === "") {
             return country;

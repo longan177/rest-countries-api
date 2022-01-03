@@ -4,7 +4,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CountryContext } from "../data";
 
 function Searchbar() {
-  const [, , searchTerm, setSearchTerm] = useContext(CountryContext);
+  const [, , searchTerm, setSearchTerm, select, setselect] =
+    useContext(CountryContext);
   console.log(searchTerm);
 
   return (
@@ -19,9 +20,11 @@ function Searchbar() {
           id="search-country"
           placeholder="Search for a country.."
         />
-      </div>
+      </div>{" "}
       <div className="search-input select-wrapper">
         <select
+          onChange={(e) => setselect(e.target.value)}
+          value={select}
           className="search-region"
           name="search-region"
           id="search-region"

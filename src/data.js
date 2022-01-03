@@ -6,6 +6,7 @@ export function CountryProvider({ children }) {
   const [countries, setCountries] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [select, setselect] = useState("");
   function compare(a, b) {
     if (a.name.common < b.name.common) {
       return -1;
@@ -38,7 +39,14 @@ export function CountryProvider({ children }) {
   }, []);
   return (
     <CountryContext.Provider
-      value={[countries, isLoaded, searchTerm, setSearchTerm]}
+      value={[
+        countries,
+        isLoaded,
+        searchTerm,
+        setSearchTerm,
+        select,
+        setselect,
+      ]}
     >
       {children}
     </CountryContext.Provider>
