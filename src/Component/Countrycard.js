@@ -27,7 +27,7 @@ function Countrycard({ name, population, region, capital, flags }) {
         <h4>
           Capital: <span>{capital}</span>
         </h4>
-        <Link to="/country-info">
+        <Link to={`/country-${name.common}`}>
           <button style={buttonstyle}>See more info</button>
         </Link>
       </article>

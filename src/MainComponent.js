@@ -14,7 +14,7 @@ function MainComponent() {
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/country-info" element={<CountryInfo />} />
+              <Route path="/:country" element={<CountryInfo />}></Route>
             </Routes>{" "}
           </main>
         </header>
