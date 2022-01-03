@@ -53,7 +53,7 @@ function CountryInfo() {
                 Sub Region : <span>{subregion}</span>
               </h4>
               <h4>
-                Capital: <span>{capital}</span>
+                Capital: <span>{capital || ""}</span>
               </h4>
             </div>
             <div className="data">

@@ -23,25 +23,23 @@ function Searchbar() {
         />
       </div>{" "}
       <div className="search-input select-wrapper">
-        <div className="custom-select">
-          <select
-            onChange={(e) => setselect(e.target.value)}
-            value={select}
-            className="search-region"
-            name="search-region"
-            id="search-region"
-          >
-            <option selected disabled>
-              Filter by Region
-            </option>
-            <option value="all">All</option>
-            <option value="africa">Africa</option>
-            <option value="americas">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-          </select>
-        </div>
+        <select
+          onChange={(e) => setselect(e.target.value)}
+          value={select}
+          className="search-region"
+          name="search-region"
+          id="search-region"
+        >
+          <option selected disabled>
+            Filter by Region
+          </option>
+          <option value="all">All</option>
+          <option value="africa">Africa</option>
+          <option value="americas">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
       </div>
     </div>
   );

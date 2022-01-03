@@ -178,7 +178,6 @@ p {
 }
 
 .nav-container {
-  /* background-color: red; */
   width: 93%;
   margin: 0 auto;
   display: flex;
@@ -269,11 +268,11 @@ nav button {
 .search-input:nth-of-type(2) {
   width: 58%;
   padding: 0;
-  /* background-color: red; */
 }
-
+.select-wrapper select {
+  background-color: var(--clr-color-white);
+}
 .search-region {
-  /* background-color: red; */
   /* display: inline; */
   font-family: inherit;
   padding: 0.8rem 1rem;
@@ -287,9 +286,7 @@ nav button {
   appearance: none;
   cursor: pointer;
   position: relative;
-  z-index: 10;
   background-color: transparent;
-  /* background-color: red; */
 }
 /* To add padding to the arrow. Select wrapper is div */
 .select-wrapper {
@@ -303,6 +300,8 @@ nav button {
   transform: translateY(-50%);
   font-size: 0.85rem;
   cursor: pointer;
+  color: inherit;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 800px) {
@@ -311,7 +310,6 @@ nav button {
     flex-direction: row;
     justify-content: space-between;
     padding: 3.1rem 0;
-    /* background-color: red; */
   }
 
   .search-input:nth-of-type(1) {
@@ -319,7 +317,6 @@ nav button {
   }
   .search-input:nth-of-type(2) {
     width: 16%;
-    /* background-color: red; */
   }
 
   .search-region {
@@ -334,7 +331,7 @@ nav button {
 .country-container {
   width: 93%;
   max-width: var(--max-width);
-  /* background-color: red; */
+
   color: inherit;
   display: grid;
   grid-template-columns: 1fr;
@@ -441,13 +438,13 @@ nav button {
   align-items: center;
   gap: 0.7rem;
   border: none;
-  background-color: white;
+  background-color: var(--clr-color-white);
   box-shadow: var(--box-shadow-light);
+  color: var(--clr-darkblue-light);
 }
 
 .country-detail-container {
   margin-top: 4rem;
-  /* border: 1px solid red; */
 }
 .data {
   margin-top: 2.5rem;
@@ -463,10 +460,10 @@ nav button {
 .country-border-button {
   display: flex;
   gap: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .country-frag {
-  /* border: 2px solid purple; */
 }
 
 .country-frag img {
@@ -475,8 +472,8 @@ nav button {
   min-height: 230px;
 }
 .country-detail {
-  /* background-color: darkgoldenrod; */
   padding-top: 0;
+  /* max-width: 50%; */
 }
 
 @media only screen and (min-width: 992px) {
@@ -485,7 +482,7 @@ nav button {
   }
   .country-detail-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(50%, 1fr) 1fr;
     gap: 3rem;
   }
   .country-frag {
@@ -498,8 +495,10 @@ nav button {
   }
   .country-border {
     display: flex;
-    /* background-color: red; */
+
     align-items: center;
+    row-gap: 1rem;
+    flex-wrap: wrap;
   }
   .country-border h3 {
     font-size: 16px;
