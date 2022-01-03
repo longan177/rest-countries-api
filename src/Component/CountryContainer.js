@@ -11,7 +11,7 @@ function CountryContainer() {
     <div className="country-container">
       {countries
         .filter((country) => {
-          if (select === "all") {
+          if (select === "all" || select === "") {
             return country;
           } else if (select === country.region.toLowerCase()) {
             return country;

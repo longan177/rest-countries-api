@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CountryContext } from "../data";
@@ -6,6 +6,7 @@ import { CountryContext } from "../data";
 function Searchbar() {
   const [, , searchTerm, setSearchTerm, select, setselect] =
     useContext(CountryContext);
+
   console.log(searchTerm);
 
   return (
@@ -22,23 +23,25 @@ function Searchbar() {
         />
       </div>{" "}
       <div className="search-input select-wrapper">
-        <select
-          onChange={(e) => setselect(e.target.value)}
-          value={select}
-          className="search-region"
-          name="search-region"
-          id="search-region"
-        >
-          <option selected disabled>
-            Filter by Region
-          </option>
-          <option value="all">All</option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
-        </select>
+        <div className="custom-select">
+          <select
+            onChange={(e) => setselect(e.target.value)}
+            value={select}
+            className="search-region"
+            name="search-region"
+            id="search-region"
+          >
+            <option selected disabled>
+              Filter by Region
+            </option>
+            <option value="all">All</option>
+            <option value="africa">Africa</option>
+            <option value="americas">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+        </div>
       </div>
     </div>
   );
