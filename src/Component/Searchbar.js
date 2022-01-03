@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { CountryContext } from "../data";
 
 function Searchbar() {
+  const [, , searchTerm, setSearchTerm] = useContext(CountryContext);
+  console.log(searchTerm);
+
   return (
     <div className="search-container">
       <div className="search-input d-flex">
@@ -10,6 +14,7 @@ function Searchbar() {
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </label>
         <input
+          onChange={(e) => setSearchTerm(e.target.value)}
           className="search-country"
           id="search-country"
           placeholder="Search for a country.."

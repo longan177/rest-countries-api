@@ -5,6 +5,7 @@ export function CountryProvider({ children }) {
   const url = "https://restcountries.com/v3.1/all";
   const [countries, setCountries] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   function compare(a, b) {
     if (a.name.common < b.name.common) {
       return -1;
@@ -22,8 +23,9 @@ export function CountryProvider({ children }) {
     xhr.onreadystatechange = function () {
       if (xhr.readyState !== 4) return;
       if (xhr.status == 200) {
+        const sortedCountry = xhr.response.sort(compare);
         console.log("success");
-        setCountries(xhr.response.sort(compare));
+        setCountries(sortedCountry);
         setIsLoaded(true);
       } else {
         console.log("error", xhr);
@@ -35,7 +37,9 @@ export function CountryProvider({ children }) {
     // some API require special authorization, that's when we use 'setRequestHeader'    xhr.send();
   }, []);
   return (
-    <CountryContext.Provider value={[countries, isLoaded]}>
+    <CountryContext.Provider
+      value={[countries, isLoaded, searchTerm, setSearchTerm]}
+    >
       {children}
     </CountryContext.Provider>
   );

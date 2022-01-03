@@ -5,12 +5,23 @@ import { Link } from "react-router-dom";
 import { CountryContext } from "../data";
 
 function CountryContainer() {
-  const [countries, isLoaded] = useContext(CountryContext);
+  const [countries, isLoaded, searchTerm, setSearchTerm] =
+    useContext(CountryContext);
   return isLoaded ? (
     <div className="country-container">
-      {countries.map((country) => {
-        return <Countrycard {...country} />;
-      })}
+      {countries
+        .filter((country) => {
+          if (searchTerm === "") {
+            return country;
+          } else if (
+            country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            return country;
+          }
+        })
+        .map((country) => {
+          return <Countrycard {...country} />;
+        })}
     </div>
   ) : (
     <Loading />
