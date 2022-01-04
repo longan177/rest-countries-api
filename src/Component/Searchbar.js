@@ -16,6 +16,7 @@ function Searchbar() {
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </label>
         <input
+          value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-country"
           id="search-country"
