@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  const [isDarkMode, setisDarkMode] = useState(false);
+  const [isDarkMode, setisDarkMode] = useState(true);
 
   const switchDarkMode = (variable, style) => {
     document.documentElement.style.setProperty(variable, style);
