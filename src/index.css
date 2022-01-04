@@ -91,7 +91,7 @@ body {
   color: var(--clr-darkblue-light);
   line-height: 1.5;
   font-size: 0.875rem;
-  transition: background 0.2s linear, color 0.2s linear;
+  /* transition: background 0.2s linear, color 0.2s linear; */
 }
 button {
   cursor: pointer;

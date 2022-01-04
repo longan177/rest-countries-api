@@ -1,29 +1,68 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link, useParams } from "react-router-dom";
 import { CountryContext } from "../data";
+import Loading from "./Loading";
+// import ButtonForBorder from "./ButtonForBorder";
 
 function CountryInfo() {
-  const [countries, isLoaded] = useContext(CountryContext);
-  const url = "https://flagcdn.com/w320/be.png";
-  const url2 = "https://flagcdn.com/sg.svg";
+  const countryList = [];
+  const [Allcountry] = useContext(CountryContext);
   const params = useParams();
   const currentCountry = params.country.replace("country-", "");
-  const getCountry = countries.find(
-    (country) => country.name.common === currentCountry
-  );
+  const empty = "Error haha";
+  const url = `https://restcountries.com/v2/name/${currentCountry}`;
+  const [countries, setCountries] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [country, setcountry] = useState([]);
+  useEffect(() => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.responseType = "json";
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status == 200) {
+        console.log("success");
+        setcountry(xhr.response);
+        setIsLoaded(true);
+      } else {
+        console.log("error", xhr);
+      }
+    };
 
-  const {
-    flags,
-    capital,
-    population,
-    region,
-    subregion,
-    languages,
-    currencies,
-    nativeName,
-  } = getCountry;
+    xhr.send();
+
+    // some API require special authorization, that's when we use 'setRequestHeader'    xhr.send();
+  }, []);
+
+  return !isLoaded ? (
+    <Loading />
+  ) : (
+    country.map((country) => <CountryDetail {...country} />)
+  );
+}
+
+export default CountryInfo;
+
+// const [
+
+// ] = getCountry;
+
+const CountryDetail = ({
+  name: { common },
+  flags,
+  capital,
+  population,
+  region,
+  subregion,
+  languages,
+  currencies,
+  nativeName,
+  borders,
+  topLevelDomain,
+}) => {
+  const empty = "unknown";
 
   return (
     <div className="info-container">
@@ -37,7 +76,7 @@ function CountryInfo() {
           <img src={flags.svg} />
         </div>
         <div className="country-detail">
-          <h3>{currentCountry}</h3>
+          <h3>{nativeName}</h3>
           <div className="detail">
             <div className="data">
               <h4>
@@ -58,13 +97,24 @@ function CountryInfo() {
             </div>
             <div className="data">
               <h4>
-                Top Level Domain : <span>Belgie</span>
+                Top Level Domain : <span>{topLevelDomain}</span>
               </h4>
               <h4>
-                Curriencies : <span>Belgie</span>
+                Curriencies :{" "}
+                <span>
+                  {currencies
+                    ? currencies
+                        .map(
+                          (currency) =>
+                            `${currency.name} ( ${currency.symbol} )`
+                        )
+                        .join(", ")
+                    : "not provided!"}
+                </span>
               </h4>
               <h4>
-                Languages : <span>{languages.children}</span>
+                Languages :{" "}
+                <span>{languages.map((language) => language.name)}</span>
               </h4>
             </div>
           </div>
@@ -72,8 +122,10 @@ function CountryInfo() {
             <h3>Border Countries: </h3>
 
             <div className="country-border-button">
-              {getCountry.borders
-                ? getCountry.borders.map((border) => <button>{border}</button>)
+              {borders
+                ? borders.map((border) => (
+                    <button style={{ cursor: "initial" }}>{border}</button>
+                  ))
                 : "No border country."}
             </div>
           </div>
@@ -81,6 +133,4 @@ function CountryInfo() {
       </div>
     </div>
   );
-}
-
-export default CountryInfo;
+};

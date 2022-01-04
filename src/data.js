@@ -25,7 +25,7 @@ export function CountryProvider({ children }) {
       if (xhr.readyState !== 4) return;
       if (xhr.status == 200) {
         const sortedCountry = xhr.response.sort(compare);
-        console.log("success");
+        console.log("success from data context");
         setCountries(sortedCountry);
         setIsLoaded(true);
       } else {
