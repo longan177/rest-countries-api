@@ -26,8 +26,8 @@ function CountryContainer() {
             return country;
           }
         })
-        .map((country) => {
-          return <Countrycard {...country} />;
+        .map((country, index) => {
+          return <Countrycard key={index} {...country} />;
         })}
     </div>
   ) : (

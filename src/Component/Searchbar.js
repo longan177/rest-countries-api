@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CountryContext } from "../data";
@@ -7,12 +7,10 @@ function Searchbar() {
   const [, , searchTerm, setSearchTerm, select, setselect] =
     useContext(CountryContext);
 
-  console.log(searchTerm);
-
   return (
     <div className="search-container">
       <div className="search-input d-flex">
-        <label for="search-country">
+        <label htmlFor="search-country">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </label>
         <input
@@ -31,7 +29,7 @@ function Searchbar() {
           name="search-region"
           id="search-region"
         >
-          <option selected disabled>
+          <option defaultValue={true} disabled>
             Filter by Region
           </option>
           <option value="all">All</option>

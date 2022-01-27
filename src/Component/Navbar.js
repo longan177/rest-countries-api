@@ -10,12 +10,10 @@ function Navbar() {
   };
   useEffect(() => {
     if (isDarkMode) {
-      console.log("change to dark!");
       switchDarkMode("--clr-lightgray-light", "hsl(207, 26%, 17%)");
       switchDarkMode("--clr-color-white", "hsl(209, 23%, 22%)");
       switchDarkMode("--clr-darkblue-light", "hsl(0, 0%, 100%)");
     } else {
-      console.log("change to light!");
       switchDarkMode("--clr-lightgray-light", "hsl(0, 0%, 98%");
       switchDarkMode("--clr-color-white", "white");
       switchDarkMode("--clr-darkblue-light", "hsl(200, 15%, 8%)");
